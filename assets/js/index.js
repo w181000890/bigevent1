@@ -22,8 +22,9 @@ function getUserInfo(){
       if(res.status !== 0){
         return layui.layer.msg(res.message)
       }
+      // console.log(res)
       renderavatar(res.data)
-    },
+    }
     // complete:function(res){
     //   console.log(res)
     //   if (res.responseJSON.status === 1 && res.responseJSON.message ==='身份认证失败！'){
@@ -37,14 +38,14 @@ function getUserInfo(){
 
 
 function renderavatar(user){
-  const name = user.nickname || user.username;
+  console.log(user)
+  let name =user.nickname || user.username;
   $('#welcome').html('欢迎&nbsp;&nbsp;'+name)
   if (user.user_pic!==null){
     $('.layui-nav-img').attr('src',user.user_pic).show()
     $('.text-avatar').hide()
   }else{
-    const firstname = user.username
-    const upperName = firstname[0].toUpperCase()
+    const upperName = name[0].toUpperCase()
     $('.text-avatar').html(upperName).show()
     $('.layui-nav-img').hide()
   }
