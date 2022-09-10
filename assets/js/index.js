@@ -38,7 +38,7 @@ function getUserInfo(){
 
 
 function renderavatar(user){
-  console.log(user)
+  // console.log(user)
   let name =user.nickname || user.username;
   $('#welcome').html('欢迎&nbsp;&nbsp;'+name)
   if (user.user_pic!==null){
